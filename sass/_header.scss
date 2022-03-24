@@ -13,8 +13,11 @@
 
 	display: grid;
 	// let logo occupy all the empty space
-	grid-template-rows: 1fr min-content 6rem 1fr;
-	grid-template-columns: max-content; // make all the rows follow the largest content's width
+	grid-template-rows: 1fr min-content minmax(6rem, min-content) 1fr;
+	grid-template-columns: minmax(
+		min-content,
+		max-content
+	); // make all the rows follow the largest content's width
 	row-gap: 1.5rem;
 	justify-content: center; // center entire grid track inside the grid container
 
@@ -54,9 +57,11 @@
 		column-gap: 3rem;
 		// center each of them in their grid cell
 		justify-items: center;
+		align-items: center;
 
 		img {
-			height: 2.5rem;
+			max-height: 2.5rem;
+			max-width: 100%;
 
 			// make image a bit darker
 			filter: brightness(70%);
