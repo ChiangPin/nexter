@@ -29,11 +29,37 @@
 	}
 
 	&__seenon-text {
+		// make text and pseudo elements into grid item
+		display: grid;
+		// if use min content, the text will break into another line
+		grid-template-columns: 1fr max-content 1fr;
+		column-gap: 1.5rem;
+		align-items: center;
+
+		font-size: 1.6rem;
+		color: $color-grey-light-2;
+
+		&::before,
+		&::after {
+			content: "";
+			height: 1px;
+			display: block;
+			background-color: currentColor; // take the current text color
+		}
 	}
 
 	&__seenon-logos {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: 3rem;
+		// center each of them in their grid cell
+		justify-items: center;
+
 		img {
 			height: 2.5rem;
+
+			// make image a bit darker
+			filter: brightness(70%);
 		}
 	}
 }
